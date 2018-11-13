@@ -355,37 +355,62 @@ void rainbowCycle(uint8_t wait) {
 
 
 void tempShow (uint8_t wait) {
-    a=length/7;
     b=length-c;
     c=a*d;
+    if (length >=8){
+    a=length/8;
+    if (bedTemp >=28 && bedTemp <30)
+    {
+    d=1;
+      }
+    else if (bedTemp >=30 && bedTemp <35)
+    {
+    d=2;
+      }  
+    else if (bedTemp >=35 && bedTemp <40)
+    {
+      d=3;
+    }
+    else if (bedTemp >=40 && bedTemp <45)
+    {
+      d=4;
+      }    
+    else if (bedTemp >=45 && bedTemp <50)
+    {
+      d=5;
+      }        
+    else if (bedTemp >=50 && bedTemp <55)
+    {
+      d=6;
+      }
+    else if (bedTemp >=55 && bedTemp <60)
+    {
+      d=7;
+      }
+    else if (bedTemp >=60)
+    {
+      d=8;
+      }
+    }
+    else if (length >=4){
+    a=length/4;
     if (bedTemp >=30 && bedTemp <35)
     {
     d=1;
       }
-    else if (bedTemp >=35 && bedTemp <40)
+    else if (bedTemp >=40 && bedTemp <45)
     {
       d=2;
-    }
-    else if (bedTemp >=40 && bedTemp <45)
+      }          
+    else if (bedTemp >=50 && bedTemp <55)
     {
       d=3;
       }    
-    else if (bedTemp >=45 && bedTemp <50)
-    {
-      d=4;
-      }        
-    else if (bedTemp >=50 && bedTemp <55)
-    {
-      d=5;
-      }
-    else if (bedTemp >=55 && bedTemp <60)
-    {
-      d=6;
-      }
     else if (bedTemp >=60)
     {
-      d=7;
+      d=4;
       }
+    }
     for(n=0;n<=c;n++)
     {
       strip.setPixelColor(n, 255, 0, 0);        
