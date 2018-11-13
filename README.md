@@ -40,8 +40,8 @@ Add ESP Board Manager to your IDE : Therefore open File>Preferences After "Addit
 
 Then open Tools>Board>Boards Manager Search for ESP Install latest ESP8266 Board Manager<br><br> 
 
-Add Additional Libraries Therefore open Sketch>Include Library>Manage Libraries... Search for Adafruit Neopixel Install latest Adafruit<br> Neopixel library<br> 
-Search ArduinoJson Install latest ArduinoJson	<br>
+Add Additional Libraries Therefore open Sketch>Include Library>Manage Libraries... Search for Adafruit Neopixel and install latest Adafruit Neopixel library<br> 
+Search ArduinoJson and install latest ArduinoJson	<br>
 Restart Arduino IDE<br>
 Open config.h and add your configuration<br>
 Choose your board and com port<br>
