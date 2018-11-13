@@ -53,7 +53,7 @@ Wifi SSID const char* SSID = "myWifi"; the name of your Wireless Network<br><br>
 
 Wifi Password const char* SSID = "myWifi"; the password to your Wireless Network<br><br>
 
-Octoprint API key const char* APIKEY = "FA9131811AF94AB48C6A9ED45AEF60FC"; like a password to the Octoprint REST Api {TBD} /doc/img/sc-octocprint-api-key.PNG You can obtain your API key in the Octoprint Webinterface in the settings under API. More info about the Octoprint API key in the API Documentation: link<br><br>
+Octoprint API key const char* APIKEY = "FA9131811AF94AB48C6A9ED45AEF60FC"; like a password to the Octoprint REST Api {TBD} /doc/img/sc-octocprint-api-key.PNG You can obtain your API key in the Octoprint Webinterface in the settings under API. More info about the Octoprint API key in the API Documentation: http://docs.octoprint.org/en/master/api/general.html#authorization<br><br>
 
 Octoprint Ip Address the Network address to your Octoprint. Same as you need to gain acces to your web interface of octoprint.<br><br>
 
