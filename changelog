@@ -1,0 +1,3 @@
+13.November.2018 5:55am
+    - Changing the minimum amount of LEDs from 7 to 4, 
+    - added a 8th temperature point to fix the problem to shown the temperature and progress on a low LED number
