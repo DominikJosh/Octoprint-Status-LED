@@ -4,12 +4,6 @@ It polls the Ocotoprint REST API periodically via a HTTP GET request. There are 
 
 Security Warning: This sketch sends unencrypted GET requests with the octoprint apikey in cleartext in the request header through your network. Although this isn't that big of a security risk though, if your octoprint is not visible to the internet (which i did not recommend anyway)
 
-# Instructions:
-You have to set up the config.h file to your Routers SSID, set up your WLAN-Passwort, set in your Octoprint http-adress, IP and API, then set your data-pin for the WS2812b Din and
-select your number of LED´s. 
-Set the statusShow to false if you didn´t want to show a rainbowcycle when the printer is ready and the status of the printjob. This is
-usefull, when you put the strip as a light for your printer. So is statusShow = false, it shows by printer ready and while printing only a
-powerfull white light.
 
 # Description:
 The color of the lamp will show you the status as follows:
@@ -35,3 +29,40 @@ BOM:<br>
 1x WS2812b RGB Led<br>
 1x Wires (3 cores, about 3-4cm)<br>
 1x Micro USB Cable and 5V Power supply <br>
+
+# The Arduino IDE Way
+Download/Clone this Repository and unpack it on your favourite folder<br><br>
+
+Download and install the latest version of the Arduino IDE for your system https://www.arduino.cc/en/Main/Software<br><br>
+
+Add ESP Board Manager to your IDE : Therefore open File>Preferences After "Additional Boards Manager URLs" insert:<br> http://arduino.esp8266.com/stable/package_esp8266com_index.json<br><br>
+
+
+Then open Tools>Board>Boards Manager Search for ESP Install latest ESP8266 Board Manager<br><br> 
+
+Add Additional Libraries Therefore open Sketch>Include Library>Manage Libraries... Search for Adafruit Neopixel Install latest Adafruit<br> Neopixel library<br> 
+Search ArduinoJson Install latest ArduinoJson	<br>
+Restart Arduino IDE<br>
+Open config.h and add your configuration<br>
+Choose your board and com port<br>
+Upload<br>
+# Configuration
+There are 4 main configurations in the config.h file, which must be made by user...<br><br>
+
+Wifi SSID const char* SSID = "myWifi"; the name of your Wireless Network<br><br>
+
+Wifi Password const char* SSID = "myWifi"; the password to your Wireless Network<br><br>
+
+Octoprint API key const char* APIKEY = "FA9131811AF94AB48C6A9ED45AEF60FC"; like a password to the Octoprint REST Api {TBD} /doc/img/sc-octocprint-api-key.PNG You can obtain your API key in the Octoprint Webinterface in the settings under API. More info about the Octoprint API key in the API Documentation: link<br><br>
+
+Octoprint Ip Address the Network address to your Octoprint. Same as you need to gain acces to your web interface of octoprint.<br><br>
+
+# Example User Config:
+#define LEDPIN D2 // where you Led is connected<br>
+const char* SSID = "myWifi";<br>
+const char* WPWD = "wifipassword";<br>
+const char* APIKEY = "FA9131811AF94AB48C6A9ED45AEF60FC";<br>
+String OCTOIP = "192.168.1.3";<br>
+uint16_t pollInterval = 500;<br>
+const uint8_t lenght = 8;<br>
+int statusShow = true; 
