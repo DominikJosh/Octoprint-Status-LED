@@ -143,18 +143,22 @@ void loop() {
                 // {
 
                 // }
-                else if(root["state"]["flags"]["ready"] && bedTemp <30 && statusShow ==true)
+                else if(root["state"]["flags"]["ready"] && bedTemp <28 && statusShow ==true)
                 {
                   modus = 4;
                 }
-                else if(root["state"]["flags"]["ready"] && bedTemp <30 && statusShow ==false)
+                else if(root["state"]["flags"]["ready"] && bedTemp <28 && statusShow ==false)
                 {
                   modus = 8;
                 }            
                 
-              else if(root["state"]["flags"]["ready"] && bedTemp >=30)
+              else if(root["state"]["flags"]["ready"] && bedTemp >=28 &&bedTemp <85)
               {
                 modus = 7;
+              }
+              else if(root["state"]["flags"]["ready"] && bedTemp >=85)
+              {
+                modus = 9;
               }
               else if(httpCode == HTTP_CODE_UNAUTHORIZED)
               {
@@ -287,6 +291,10 @@ http.begin(URL2); //HTTP
       white(5);
       break;
     }
+  case 9: {
+      fire(&last, &k, &stage, length);
+      break;
+    }
   default: {
 
       break;
@@ -310,25 +318,26 @@ void white (uint8_t wait) {
 
 
 void prozent (uint8_t wait) {
-    e=length/4;
     f=length-g;
     g=e*h;
-    if (progress >=0 && progress <25)
+    if (length ==4 || length ==12 || length ==20 || length ==28 || length ==44 || length ==52 || length ==60 || length ==68 || length ==76 || length ==84 || length ==92 || length ==100 || length ==108 || length ==116){
+    e=length/4;
+    if (progress >=25 && progress <50)
     {
     h=1;
       }
-    else if (progress >=25 && progress <50)
+    else if (progress >=50 && progress <75)
     {
       h=2;
     }
-    else if (progress >=50 && progress <75)
+    else if (progress >=75 && progress <99)
     {
       h=3;
       }    
-    else if (progress >=75 && progress <100)
+    else if (progress >=99 && progress <100)
     {
       h=4;
-      }        
+      }         
     for(m=0;m<=g;m++)
     {
       strip.setPixelColor(m, 0, 255, 0);        
@@ -337,9 +346,55 @@ void prozent (uint8_t wait) {
     {
       strip.setPixelColor(m, 0, 0, 255);
     }
+    }
+
+    else if (length ==8  || length ==16  || length ==24  || length ==32  || length ==40  || length ==48  || length ==56  || length ==64  || length ==72  || length ==80  || length ==88  || length ==96  || length ==104  || length ==112  || length ==120){
+    e=length/8;
+    if (progress >=12 && progress <25)
+    {
+    h=1;
+      }
+    else if (progress >=25 && progress <37)
+    {
+      h=2;
+    }
+    else if (progress >=37 && progress <50)
+    {
+      h=3;
+      }    
+    else if (progress >=50 && progress <62)
+    {
+      h=4;
+      } 
+    if (progress >=62 && progress <75)
+    {
+    h=5;
+      }
+    else if (progress >=75 && progress <87)
+    {
+      h=6;
+    }
+    else if (progress >=87 && progress <99)
+    {
+      h=7;
+      }    
+    else if (progress >=99 && progress <100)
+    {
+      h=8;
+      }          
+    for(m=0;m<=g;m++)
+    {
+      strip.setPixelColor(m, 0, 255, 0);        
+    }
+    for(m=g;m<=length;m++)
+    {
+      strip.setPixelColor(m, 0, 0, 255);
+    }
+    }
     strip.show();
      delay(wait);
   }
+    
 
 
 void rainbowCycle(uint8_t wait) {
@@ -357,7 +412,7 @@ void rainbowCycle(uint8_t wait) {
 void tempShow (uint8_t wait) {
     b=length-c;
     c=a*d;
-    if (length >=8){
+    if (length ==8  || length ==16  || length ==24  || length ==32  || length ==40  || length ==48  || length ==56  || length ==64  || length ==72  || length ==80  || length ==88  || length ==96  || length ==104  || length ==112  || length ==120){
     a=length/8;
     if (bedTemp >=28 && bedTemp <30)
     {
@@ -392,9 +447,9 @@ void tempShow (uint8_t wait) {
       d=8;
       }
     }
-    else if (length >=4){
+    else if (length ==4 || length ==12 || length ==20 || length ==28 || length ==44 || length ==52 || length ==60 || length ==68 || length ==76 || length ==84 || length ==92 || length ==100 || length ==108 || length ==116){
     a=length/4;
-    if (bedTemp >=30 && bedTemp <35)
+    if (bedTemp >=28 && bedTemp <35)
     {
     d=1;
       }
@@ -423,6 +478,29 @@ void tempShow (uint8_t wait) {
      delay(wait);
   }
   
+void fire(uint32_t* lastmillis, uint8_t* k, uint8_t* stage, uint8_t length) {
+unsigned long  currentmillis = millis();
+
+  if ((currentmillis - *lastmillis) >= 400 ) {
+    *lastmillis = millis();
+    if (*stage == 0) {
+      for (int i = 0; i < length; i++) {
+        strip.setPixelColor(i, 255, 25, 0);
+      }
+      strip.show();
+      *stage = 1;
+    }
+    else {
+      if (*stage == 1) {
+        for (int i = 0; i < length; i++) {
+          strip.setPixelColor(i, 255, 45, 0);
+        }
+        strip.show();
+        *stage = 0;
+      }
+    }
+  }
+}
 
 void rainbow(uint32_t* lastmillis, uint8_t* k, uint8_t* stage, uint8_t length) {
 
