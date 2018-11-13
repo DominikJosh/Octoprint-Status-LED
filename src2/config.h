@@ -11,7 +11,7 @@
   const char* APIKEY = ""; // octoprint api key (optain it in the web interface)
   String OCTOIP = ""; // the ip address of octoprint
   uint16_t pollInterval = 500; // ms, lower value will increase poll rate, but the animation time will limit the poll rate too
-  const uint8_t length = 8; // number of LEDs, minimum amount of LEDs is 4 better ist 8 and the aquivalent of it (8,18,24,32,40....)
+  const uint8_t length = 8; // number of LEDs, minimum amount of LEDs is 4 better ist 8 supported: 4,8,12,16,20,24,28,32,36,40...120)
   int statusShow = true;   //set false for white light while printing and while printer is ready
 
 #endif
