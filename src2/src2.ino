@@ -165,7 +165,7 @@ void loop() {
               else if(httpCode == HTTP_CODE_CONFLICT)
               {
                 // Printer is not operational
-                modus = 2; // Green
+                modus = 1; // Green
               }
             }
             else
