@@ -143,11 +143,11 @@ void loop() {
                 // {
 
                 // }
-                else if(root["state"]["flags"]["ready"] && bedTemp <28 && statusShow ==true)
+                else if(root["state"]["flags"]["ready"] && bedTemp <28 && readyShow ==true)
                 {
                   modus = 4;
                 }
-                else if(root["state"]["flags"]["ready"] && bedTemp <28 && statusShow ==false)
+                else if(root["state"]["flags"]["ready"] && bedTemp <28 && readyShow ==false)
                 {
                   modus = 8;
                 }            
