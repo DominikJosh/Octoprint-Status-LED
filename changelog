@@ -5,3 +5,6 @@
     -adding firemode for a bedtemp over 85°C
     -adding different modes for LED amounts dividable 4 or 8
     -bugfixes
+14.November 2018 7:12pm
+    -adding disable function for the printer is ready rainbowcycle
+       when it is disabled (false) the stip shows a static white light
