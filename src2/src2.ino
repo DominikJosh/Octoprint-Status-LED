@@ -149,7 +149,7 @@ void loop() {
                 }
                 else if(root["state"]["flags"]["ready"] && bedTemp <28 && readyShow ==false)
                 {
-                  modus = 8;
+                  modus = 10;
                 }            
                 
               else if(root["state"]["flags"]["ready"] && bedTemp >=28 &&bedTemp <85)
@@ -288,11 +288,15 @@ http.begin(URL2); //HTTP
       break;
     }
   case 8: {
-      white(5);
+      noneStatus(5);
       break;
     }
   case 9: {
       fire(&last, &k, &stage, length);
+      break;
+    }
+  case 10: {
+      noneReady(5);
       break;
     }
   default: {
@@ -308,9 +312,17 @@ http.begin(URL2); //HTTP
 
 //Animationfunctions
 //
-void white (uint8_t wait) {
+void noneStatus (uint8_t wait) {
   for(int i = 0; i < length; i++) {
-      strip.setPixelColor(i, 255, 255, 255);
+      strip.setPixelColor(i, 0 + statusRed, 0 + statusGreen, 0 + statusBlue);
+    }
+    strip.show();
+    delay(wait);
+}
+
+void noneReady (uint8_t wait) {
+  for(int i = 0; i < length; i++) {
+      strip.setPixelColor(i, 0 + readyRed, 0 + readyGreen, 0 + readyBlue);
     }
     strip.show();
     delay(wait);
