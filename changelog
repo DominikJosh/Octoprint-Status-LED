@@ -8,3 +8,6 @@
 14.November 2018 7:12pm
     -adding disable function for the printer is ready rainbowcycle
        when it is disabled (false) the stip shows a static white light
+15.November 2018 7:15pm
+    -adding customizable RGB-values for static color printer is ready
+    -adding customizable RGB-values for static color printer is printing
