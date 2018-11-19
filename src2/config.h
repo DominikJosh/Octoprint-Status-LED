@@ -1,7 +1,8 @@
 
 // User config
 // more info in the README.md in the root of the repository
-
+#ifndef CONFIG  // not #ifnotdef
+#define CONFIG
 #define PIN D2
   const char* SSID = "FRITZ!Box 6360 Cable"; // wlan SSID
   const char* WPWD = "9884406786530457"; // wlan password
@@ -20,5 +21,4 @@
     int readyGreen = 255;  //green value 0-255
     int readyRed = 255;    //red value 0-255
     int readyBlue = 255;   //blue value 0-255
-
 #endif
