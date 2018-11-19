@@ -11,3 +11,7 @@
 15.November 2018 7:15pm
     -adding customizable RGB-values for static color printer is ready
     -adding customizable RGB-values for static color printer is printing
+19.November 2018 6:32am
+    -debuging the Status Show of a second print, before it shows the hole strip green until the job isn´t over 12/25% now it is all 
+      blue, like it should
+    -debuging the config.h, I re-added 2 inadvertently deledet parameters, so the config.h wasn´t running
