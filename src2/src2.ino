@@ -334,6 +334,10 @@ void prozent (uint8_t wait) {
     g=e*h;
     if (length ==4 || length ==12 || length ==20 || length ==28 || length ==44 || length ==52 || length ==60 || length ==68 || length ==76 || length ==84 || length ==92 || length ==100 || length ==108 || length ==116){
     e=length/4;
+    if (progress >=0 && progress <25)
+    {
+    h=0;
+      }
     if (progress >=25 && progress <50)
     {
     h=1;
@@ -362,6 +366,10 @@ void prozent (uint8_t wait) {
 
     else if (length ==8  || length ==16  || length ==24  || length ==32  || length ==40  || length ==48  || length ==56  || length ==64  || length ==72  || length ==80  || length ==88  || length ==96  || length ==104  || length ==112  || length ==120){
     e=length/8;
+    if (progress >=0 && progress <12)
+    {
+    h=0;
+      }
     if (progress >=12 && progress <25)
     {
     h=1;
