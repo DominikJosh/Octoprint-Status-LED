@@ -155,10 +155,12 @@ void loop() {
               else if(root["state"]["flags"]["ready"] && bedTemp >=28 &&bedTemp <85)
               {
                 modus = 7;
+                h = 0;
               }
               else if(root["state"]["flags"]["ready"] && bedTemp >=85)
               {
                 modus = 9;
+                h = 0;
               }
               else if(httpCode == HTTP_CODE_UNAUTHORIZED)
               {
